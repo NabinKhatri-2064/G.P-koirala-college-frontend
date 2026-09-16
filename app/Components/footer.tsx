@@ -124,7 +124,7 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="mt-14 border-t border-white/20 pt-6 text-center text-sm text-white/60">
-          © {new Date().getFullYear()} Your College Name. All rights reserved.
+          © {new Date().getFullYear()} G.P Koirala Memorial College. All rights reserved.
         </div>
 
       </div>

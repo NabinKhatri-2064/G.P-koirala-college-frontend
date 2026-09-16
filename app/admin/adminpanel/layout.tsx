@@ -12,6 +12,9 @@ export default async function checkcookies({children} : {children:React.ReactNod
     {
         redirect("/");
     }
+    else{
+        redirect("/admin/adminpanel")
+    }
 
 
     return (

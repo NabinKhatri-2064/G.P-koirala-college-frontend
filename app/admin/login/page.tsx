@@ -3,7 +3,7 @@
 import Gridline from "@/app/Components/Gridlines";
 import { EyeClosed, EyeOff, TriangleAlert } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Adminportal from "./components/Adminportal";
@@ -20,27 +20,23 @@ const page = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/admin/login`,
-        {
-          method: "POST",
-          body: JSON.stringify({ username, password }),
-          headers: {
-            "Content-type": "application/json",
-          },
-          credentials: "include",
-        },
-      );
+      const response = await fetch(`/api/auth/admin`, {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: {
+          "Content-Type":"application/json"
+        }
+      });
 
       if (!response.ok) {
         throw new Error("Invalid username or password!");
       }
 
       const data = await response.json();
+      router.push("/admin/adminpanel")
       setUsername("");
       setPassword("");
       toast.success("Logged in successfully");
-      router.push("/admin/adminpanel");
     } catch (error) {
       console.log(error);
       toast.error(
@@ -56,17 +52,16 @@ const page = () => {
       <Gridline />
       <ToastContainer />
 
-      <Adminportal/>
+      <Adminportal />
       <section className="flex lg:flex-row flex-col  rounded-md border-2 justify-between  min-h-screen gap-4  border-gray-200 pb-10 pt-16 ">
         <div className="relative flex flex-col items-center justify-center md:min-w-xs  w-full bg-[#32048f]/80 rounded-md gap-4 p-4 overflow-hidden rounded-br-[50%]">
-        
-        <Image
-        src="/sujan sir.png"
-        height={1200}
-        width={1200}
-        alt="sir"
-        className="absolute -z-10 h-full w-full object-cover "
-        />
+          <Image
+            src="/sujan sir.png"
+            height={1200}
+            width={1200}
+            alt="sir"
+            className="absolute -z-10 h-full w-full object-cover "
+          />
           <div className="relative w-32">
             <Image
               src="/collegelogo.png"
@@ -139,13 +134,13 @@ const page = () => {
                 />
                 {showpassword ? (
                   <EyeOff
-                  size={16}
+                    size={16}
                     onClick={() => setShowPassword(!showpassword)}
                     className="absolute top-2 right-2 hover:cursor-pointer hover:text-purple-800"
                   />
                 ) : (
                   <EyeClosed
-                  size={16}
+                    size={16}
                     onClick={() => setShowPassword(!showpassword)}
                     className="absolute top-2 right-2 hover:cursor-pointer hover:text-purple-800"
                   />

@@ -9,27 +9,8 @@ import { Josefin_Sans } from "next/font/google";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: [
-    "100",
-    "200",
-    "300",
-    "400",
-    "500",
-    "600",
-    "700",
-    "800",
-    "900",
-  ],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
-
-
-
-
-
-
-
-
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,19 +28,16 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
- 
   return (
     <html
       lang="en"
       className={` ${poppins.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      
-     
       <body className="min-h-full flex flex-col">
-        <Navbar/>
+        <Navbar />
         <main>{children}</main>
-        <Footer/> 
-        </body>
+        <Footer />
+      </body>
     </html>
   );
 }

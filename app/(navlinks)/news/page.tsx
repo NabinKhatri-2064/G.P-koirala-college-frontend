@@ -100,7 +100,10 @@ const page = () => {
         {/* FEATURED NEWS */}
 
         {featurednewsloading ? (
-          <Featurednewsloading />
+          <div className="w-full flex justify-center">
+          <Featurednewsloading/>
+
+          </div>
         ) : (
           <div className="group flex md:flex-row flex-col lg:flex-row gap-4 border rounded-md lg:w-full md:w-200 hover:-translate-y-10 overflow-hidden duration-300 lg:h-128">
             {featurednews.map((featurednews) => (
@@ -108,7 +111,7 @@ const page = () => {
                 className="relative flex justify-between w-full lg:flex-row flex-col"
                 key={featurednews.id}
               >
-                <div className="relative lg:w-5xl lg:h-128 h-90 overflow-hidden">
+                <div className="relative lg:w-5xl lg:h-128 h-90  overflow-hidden">
                   <Image
                     src={featurednews.image}
                     fill
@@ -120,11 +123,11 @@ const page = () => {
                   </p>
                 </div>
 
-                <div className="flex flex-col lg:min-h-full h-full w-full md:w-lg  justify-between p-4  lg:gap-4 ">
+                <div className="flex flex-col  lg:min-h-full h-full w-full   justify-between p-4  lg:gap-4 ">
                   <h3 className="lg:text-3xl text-2xl primary-font-color font-bold">
                     {featurednews.headline}
                   </h3>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-4 w-full ">
                     <p className="italic text-gray-500 lg:text-md text-sm ">
                       {featurednews.firstparagraph}
                     </p>

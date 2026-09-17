@@ -3,7 +3,7 @@
 import Gridline from "@/app/Components/Gridlines";
 import { EyeClosed, EyeOff, TriangleAlert } from "lucide-react";
 import Image from "next/image";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Adminportal from "./components/Adminportal";
@@ -20,13 +20,17 @@ const page = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`/api/auth/admin`, {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-        headers: {
-          "Content-Type":"application/json"
-        }
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/admin/login`,
+        {
+          method: "POST",
+          body: JSON.stringify({ username, password }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        },
+      );
 
       if (!response.ok) {
         throw new Error("Invalid username or password!");

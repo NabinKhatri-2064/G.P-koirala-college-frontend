@@ -1,42 +1,42 @@
-"use client ";
+"use client";
 
 import Caution from "@/app/Components/Caution";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default async function checkcookies({
+export default function AdminPanelLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const cookiestore = await cookies();
+  const router = useRouter();
+  const [checking, setChecking] = useState(true);
 
-  const token = cookiestore.get("access_token")?.value;
+  useEffect(() => {
+    async function verifyAdmin() {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/admin/verify`,
+          {
+            credentials: "include",
+          },
+        );
 
-  if (!token) {
-    redirect("/admin/login");
-  }
+        if (!response.ok) {
+          router.replace("/admin/login");
+          return;
+        }
 
-  const checkadmin = async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/admin/verify`,
-      {
-        method: "GET",
-        headers: {
-          Cookie: `access_token=${token}`,
-        },
-        cache: "no-store",
-      },
-    );
-    if (!response.ok) {
-      redirect("/admin/login");
+        setChecking(false);
+      } catch {
+        router.replace("/admin/login");
+      }
     }
 
-    const user = await response.json();
-    if (user.role !== "ADMIN") {
-      redirect("/");
-    }
-  };
+    verifyAdmin();
+  }, [router]);
+
+  if (checking) return null;
 
   return (
     <div>

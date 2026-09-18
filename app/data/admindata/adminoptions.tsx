@@ -2,7 +2,8 @@ import { LayoutDashboardIcon, LucideIcon, Newspaper, PlusCircle, User } from "lu
 import Addfeaturednews from "../../admin/adminoptions/Addfeaturednews";
 import Addnews from "../../admin/adminoptions/Addnews";
 import Dashboard from "../../admin/adminoptions/Dashboard";
-import Listusers from "../../admin/adminoptions/Listusers";
+import Listusers from "../../admin/adminoptions/Enquiry";
+import Enquiry from "../../admin/adminoptions/Enquiry";
 
 export interface adminoptions {
   id: number;
@@ -15,12 +16,12 @@ export const adminpages = [
   { id: 1, page: <Addfeaturednews/>, alt: "Add featuredNews" },
   { id: 2, page: <Addnews/>, alt: "Add News" },
   { id: 3, page: <Dashboard/>, alt: "Dashboard" },
-  { id: 4, page: <Listusers/>, alt: "ListUsers" },
+  { id: 4, page: <Enquiry/>, alt: "Student's Enquiry" },
 ];
 
 
 
-export type adminoption = "Dashboard" | "Add News" | "Add featuredNews" | "ListUsers";
+export type adminoption = "Dashboard" | "Add News" | "Add featuredNews" | "Student's Enquiry";
 
 
 
@@ -36,7 +37,7 @@ export const styling =
 
 export const options: adminpanel[] = [
   { id: 1, options: "Dashboard", styling: styling , icon: LayoutDashboardIcon },
-  { id: 2, options: "ListUsers", styling: styling,icon: User },
+  { id: 2, options: "Student's Enquiry", styling: styling,icon: User },
   { id: 3, options: "Add featuredNews", styling: styling,icon:Newspaper },
   { id: 4, options: "Add News", styling: styling, icon:PlusCircle },
 ];

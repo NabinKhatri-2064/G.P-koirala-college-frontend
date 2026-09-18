@@ -3,6 +3,7 @@
 import Caution from "@/app/Components/Caution";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Adminpanelskeleton from "./components/Adminpanelskeleton";
 
 export default function AdminPanelLayout({
   children,
@@ -36,12 +37,15 @@ export default function AdminPanelLayout({
     verifyAdmin();
   }, [router]);
 
-  if (checking) return null;
+  if (checking) return <Adminpanelskeleton/>
+    
 
   return (
     <div>
-      <Caution />
-      {children}
+      <div>
+        <Caution />
+        {children}
+      </div>
     </div>
   );
 }

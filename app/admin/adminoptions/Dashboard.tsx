@@ -18,12 +18,13 @@ import {
 
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Dashboardskeleton from "./LoadinSkeletons/Dashboardskeleton";
 
 const Dashboard = () => {
   const [newslength, setNewsLength] = useState<number>(0);
   const [totalenquiry, setTotalEnquiry] = useState<number>();
   const [currentadmin, setCurrentAdmin] = useState<string>("Nabin Khatri");
-
+  const [loading, setLoading] = useState<boolean>(true);
   interface datastructure {
     id: number | null;
     email: string;
@@ -34,14 +35,13 @@ const Dashboard = () => {
   }
 
   const [info, setInfo] = useState<datastructure[]>([]);
-
   // FETCHES THE TOTAL ENQUIRY LENGTH
   useEffect(() => {
     const fetchdata = async () => {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/enquiry`, {
           method: "GET",
-          credentials: "include"
+          credentials: "include",
         });
 
         if (!res.ok) {
@@ -50,6 +50,7 @@ const Dashboard = () => {
 
         const data = await res.json();
         setTotalEnquiry(data.length);
+        setLoading(false);
       } catch (error) {
         toast.error("Internal Server error");
       }
@@ -66,7 +67,7 @@ const Dashboard = () => {
           `${process.env.NEXT_PUBLIC_API_URL}/enquiry/message`,
           {
             method: "GET",
-            credentials: "include"
+            credentials: "include",
           },
         );
 
@@ -74,8 +75,7 @@ const Dashboard = () => {
           throw new Error("Error while fetching data");
         }
         const data = await res.json();
-        setInfo(data)
-
+        setInfo(data);
       } catch (error) {
         toast.error("Internal Server error");
       }
@@ -107,13 +107,12 @@ const Dashboard = () => {
     },
   ];
 
-
   return (
     <main>
       <section className="grid grid-cols-3 gap-4 max-w-lg">
         {Dashboard.map((d, index) => (
           <div
-            className="flex border p-2 rounded-md flex-col justify-center items-center"
+            className="flex border hover:bg-gray-100/70  p-2 rounded-md flex-col justify-center items-center"
             key={index}
           >
             <div>
@@ -128,37 +127,37 @@ const Dashboard = () => {
         ))}
       </section>
 
-      
+      {loading ? (
+        <Dashboardskeleton />
+      ) : (
+        <section className="pt-12 flex flex-col gap-8">
+          {/* RECENT ENQUIRIES SECTION */}
+          <h1 className="text-5xl font-medium text-gray-600">
+            Recent Enquiries
+          </h1>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-25">Name</TableHead>
+                <TableHead>email</TableHead>
+                <TableHead>contact</TableHead>
+                <TableHead className="text-right">Intrestedin</TableHead>
+              </TableRow>
+            </TableHeader>
 
-      <section className="pt-12 flex flex-col gap-8">
-        {/* RECENT ENQUIRIES SECTION */}
-        <h1 className="text-5xl font-medium text-gray-600">Recent Enquiries</h1>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-25">Name</TableHead>
-              <TableHead>email</TableHead>
-              <TableHead>contact</TableHead>
-              <TableHead className="text-right">Intrestedin</TableHead>
-            </TableRow>
-          </TableHeader>
-
-          {info.map((i) => (
-            
-              <TableBody 
-              key={i.id}
-              className="border-b"
-              >
-                <TableRow >
+            {info.map((i) => (
+              <TableBody key={i.id} className="border-b">
+                <TableRow>
                   <TableCell className="font-medium">{i.name}</TableCell>
                   <TableCell>{i.email}</TableCell>
                   <TableCell>{i.mobilenumber}</TableCell>
                   <TableCell className="text-right">{i.interestedin}</TableCell>
                 </TableRow>
               </TableBody>
-          ))}
-        </Table>
-      </section>
+            ))}
+          </Table>
+        </section>
+      )}
     </main>
   );
 };

@@ -1,4 +1,5 @@
 import {
+  BellRing,
   Info,
   ShieldCheck,
   SquareArrowOutUpRight,
@@ -6,6 +7,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 
 const Caution = () => {
@@ -13,7 +15,9 @@ const Caution = () => {
     <main className="max-w-screen z-20 primary-bg-color fixed  w-full max-h-16 h-full flex  justify-center items-center">
       <section className="flex justify-between px-10 items-center w-full">
         <div className="flex  items-center gap-4 text-white  ">
-          <div>
+          <div 
+          onClick={()=> redirect("/")}
+          className="hover:cursor-pointer">
             <Image
               width={48}
               height={48}
@@ -36,14 +40,23 @@ const Caution = () => {
           </div>
         </div>
 
-        <div className="text-white">
+        <div className="flex items-center gap-4">
+
+          <div className="bg-gray-100/20  rounded-full p-2 hover:bg-gray-100/30 hover:cursor-pointer">
+            <BellRing color="white" size={16} className=""/>
+          </div>
+
+
+            <div className="text-white">
           <Link
-            className="text-sm gap-2 items-center bg-white/20 flex  p-2 rounded-md"
+            className="text-sm gap-2 items-center bg-white/20 hover:bg-gray-100/30 flex  p-2 rounded-md"
             href="/"
           >
             <SquareArrowOutUpRight size={16} /> Visit Website
           </Link>
         </div>
+        </div>
+      
       </section>
     </main>
   );

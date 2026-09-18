@@ -15,6 +15,7 @@ const page = () => {
   const [loading , isloading] = useState<boolean>(true);
 
 
+
   const [currentpage, setCurrentPage] =
     useState<adminoption>("Dashboard");
 
@@ -22,7 +23,7 @@ const page = () => {
     <main className="pt-30 pb-18 min-h-screen h-full">
   <section className="flex gap-8 px-4">
     
-    <aside className="w-64 shrink-0 flex flex-col gap-8">
+    <aside className="w-64 shrink-0 flex flex-col gap-8 relative">
       
       <h1 className="flex text-xl justify-center font-semibold w-full items-center gap-2 text-white primary-bg-color px-2 py-2 rounded-md shrink-0">
         <Settings2 size={30} />

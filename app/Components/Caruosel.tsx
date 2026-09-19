@@ -58,7 +58,7 @@ export function CarouselDemo() {
                       flex-col-reverse
                       overflow-hidden
                       border-l-4
-                      border-purple-500
+                      border-blue-800
                       bg-background
                       shadow-sm
 

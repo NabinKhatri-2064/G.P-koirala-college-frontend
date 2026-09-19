@@ -1,20 +1,68 @@
-"use client"
+"use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-
-
 const Navbar = () => {
+  const nonavbarlink = ["/admin/login", "/admin/adminpanel"];
+  const pathname = usePathname();
 
-  const nonavbarlink = ["/admin/login","/admin/adminpanel"]
-const pathname = usePathname()
+  interface navlinks {
+    id: number;
+    label: string;
+    styling: string;
+    href: string;
+  }
 
-const hidenavbar = nonavbarlink.includes(pathname);
+  const navbarlinks: navlinks[] = [
+    {
+      id: 1,
+      label: "Home",
+      styling:
+        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+      href: "/",
+    },
+    {
+      id: 2,
+      label: "About us",
+      styling:
+        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+      href: "/about",
+    },
+    {
+      id: 3,
+      label: "Programs",
+      styling:
+        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+      href: "/programs",
+    },
+    {
+      id: 4,
+      label: "News and Events",
+      styling:
+        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+      href: "/news",
+    },
+    {
+      id: 5,
+      label: "Admission",
+      styling:
+        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+      href: "/admission",
+    },
+  ];
+
+  const hidenavbar = nonavbarlink.includes(pathname);
   return (
-    <main className={hidenavbar ? "hidden" :"fixed top-0 left-0 z-50  w-full bg-white shadow-md" }>
+    <main
+      className={
+        hidenavbar
+          ? "hidden"
+          : "fixed top-0 left-0 z-50  w-full bg-white shadow-md primary-bg-color"
+      }
+    >
       {/* MAIN WRAPPER */}
       <section className="max-w-7xl mx-auto w-full  ">
         <div className="flex items-center justify-between h-24">
@@ -30,57 +78,29 @@ const hidenavbar = nonavbarlink.includes(pathname);
             </div>
 
             <div className="leading-tight">
-              <p className="text-purple-900 text-lg font-semibold">
-                G.P Koirala
-              </p>
+              <p className="text-white text-lg font-semibold">G.P Koirala</p>
 
-              <p className="text-purple-800 text-sm font-semibold">
+              <p className="text-white text-sm font-semibold">
                 Memorial Community College
               </p>
 
-              <p className="text-purple-700 text-xs font-light mt-1">
+              <p className="text-white   text-xs font-light mt-1">
                 Sifal,Kathmandu
               </p>
             </div>
           </Link>
 
           {/* NAV LINKS */}
-          <section className=" items-center gap-12 bg-white px-9 py-3 rounded-2xl shadow-purple-100 shadow-lg lg:flex hidden">
-            <Link
-              className="text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-purple-500 transition"
-              href="/"
-            >
-              Home
-            </Link>
-
-            <Link
-              className="text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-purple-500 transition"
-              href="/about"
-            >
-              About us
-            </Link>
-
-            <Link
-              className="text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-purple-500 transition"
-              href="/programs"
-            >
-              Programs
-            </Link>
-
-            <Link
-              className="text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-purple-500 transition"
-              href="/news
-              "
-            >
-              News and Events
-            </Link>
-
-            <Link
-              className="text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-purple-500 transition"
-              href="/admission"
-            >
-              Admission
-            </Link>
+          <section className=" items-center gap-12 bg-white px-9 py-3 rounded-2xl  shadow-lg lg:flex hidden">
+            {navbarlinks.map((navitems) => (
+              <Link
+                key={navitems.id}
+                className={navitems.styling}
+                href={navitems.href}
+              >
+                {navitems.label}
+              </Link>
+            ))}
           </section>
 
           {/* COLLEGE LOCATION */}

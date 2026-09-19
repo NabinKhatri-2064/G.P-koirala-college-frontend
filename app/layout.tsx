@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/footer";
 import { Josefin_Sans } from "next/font/google";
+import LenisProvider from "./Components/Lenisprovider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -40,7 +41,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <Navbar />
-        <main>{children}</main>
+        <main>
+          <LenisProvider>{children}</LenisProvider>
+        </main>
         <Footer />
       </body>
     </html>

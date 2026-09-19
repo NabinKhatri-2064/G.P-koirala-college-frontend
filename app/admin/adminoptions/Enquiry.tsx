@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -15,6 +14,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { Dialgobox } from "@/app/Components/Dialogbox";
 
 const Enquiry = () => {
+  //BACKEND DATA INTERFACE
   interface data {
     id: number;
     name: string;
@@ -26,8 +26,9 @@ const Enquiry = () => {
   const [data, setData] = useState<data[]>([]);
   const [open, setOpen] = useState<boolean>(false);
   const [selectedid, setSelectedId] = useState<number | null>();
-  const [loading,setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false);
 
+  //HANDLES THE FETCH DATA WITH GET METHOD FROM BACKEND
   useEffect(() => {
     const fetchdata = async () => {
       try {
@@ -55,8 +56,9 @@ const Enquiry = () => {
     fetchdata();
   }, []);
 
+  //HANDLES DELETE ENQUIRY MESSAGE
   const handledelete = async (id: number) => {
-    setLoading(true)
+    setLoading(true);
     setOpen(true);
     try {
       const response = await fetch(
@@ -73,20 +75,19 @@ const Enquiry = () => {
 
       setData(data.filter((item) => item.id !== id));
       toast.success("Enquiry Deleted Successfully");
-      setOpen(!open)
-
+      setOpen(!open);
     } catch (error) {
       toast.error(
         error instanceof Error ? error.name : "Internal Server Error",
       );
-    }finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <main>
-      <ToastContainer/>
+      <ToastContainer />
       <h1 className="text-white p-2 rounded-md max-w-xs text-4xl font-medium primary-bg-color text-center">
         Student's Enquiry
       </h1>
@@ -135,7 +136,7 @@ const Enquiry = () => {
         onOpenChange={setOpen}
         title="Delete Enquiry"
         description="Are you sure want to delete this enquiry"
-        confirmText= {loading ? "wait" : "Delete"}
+        confirmText={loading ? "wait" : "Delete"}
         onConfirm={() => {
           if (selectedid != null) {
             handledelete(selectedid);

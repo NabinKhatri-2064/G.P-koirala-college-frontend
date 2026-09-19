@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 function LatestNewsSkeleton() {
   return (
-    <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-2">
       {Array.from({ length: 6 }).map((_, index) => (
         <div
           key={index}

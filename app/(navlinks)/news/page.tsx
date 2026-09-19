@@ -85,10 +85,10 @@ const page = () => {
   }, []);
 
   return (
-    <main className="pt-30 max-w-7xl mx-auto pb-10">
+    <main className="pt-30 max-w-7xl mx-auto pb-10 px-2">
       <section className="flex flex-col gap-12 px-2 items-center pb-20">
         <div className="flex flex-col gap-2 items-start  w-full">
-          <h1 className=" lg:text-5xl md:text-3xl sm:text-2xl font-bold primary-font-color transition-all">
+          <h1 className=" lg:text-5xl text-3xl font-bold primary-font-color transition-all">
             Featured News ?
           </h1>
           <p className="text-gray-500 flex flex-col">

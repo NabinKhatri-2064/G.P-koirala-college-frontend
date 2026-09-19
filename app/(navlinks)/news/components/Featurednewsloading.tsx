@@ -3,11 +3,11 @@ import React from "react";
 
 function Featurednewsloading() {
   return (
-    <div className="group flex md:flex-row flex-col lg:flex-row gap-4 border rounded-md lg:w-full md:w-200 overflow-hidden lg:h-128">
+    <div className="group flex md:flex-row flex-col lg:flex-row gap-4 border rounded-md w-full  overflow-hidden lg:h-128 lg:px-0 mx-2">
       <div className="relative flex justify-between w-full lg:flex-row flex-col">
         
         {/* IMAGE */}
-        <div className="relative lg:w-5xl lg:h-128 h-90 overflow-hidden">
+        <div className="relative lg:w-5xl lg:h-128 h-90 w-full overflow-hidden">
           <Skeleton className="w-full h-full rounded-md" />
 
           {/* CATEGORY */}

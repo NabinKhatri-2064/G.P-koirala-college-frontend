@@ -15,7 +15,7 @@ const Herosection = () => {
   const AffiliationIcon = affiliation.icon;
 
   return (
-    <main className="min-h-screen w-full flex flex-col overflow-x-hidden gap-20 pt-20 ">
+    <main className="min-h-screen w-full flex flex-col overflow-x-hidden gap-20 lg:pt-20 md:pt-18 pt-10 ">
       <section className="relative w-full min-h-screen overflow-visible flex">
         <Gridline />
 
@@ -45,11 +45,11 @@ const Herosection = () => {
                 <div>
                   <p className="text-base lg:text-md flex flex-col text-gray-700 leading-relaxed">
                     {description.firstLine}
-                    <span>{description.secondLine}</span>
+                    {description.secondLine}
                   </p>
                 </div>
 
-                <div className="grid lg:grid-cols-4 grid-cols-2 lg:justify-items-center w-full">
+                <div className="grid lg:grid-cols-4 grid-cols-2 lg:justify-items-center w-full gap-2">
                   {features.map((feature) => {
                     const FeatureIcon = feature.icon;
 

@@ -31,7 +31,7 @@ const page = () => {
           </div>
 
           <div className="flex flex-col justify-between gap-1 p-4">
-            <div className="flex flex-col justify-center text-purple-800  gap-1">
+            <div className="flex flex-col justify-center primary-font-color  gap-1">
               <p className="lg:text-2xl md:text-xl text-lg font-bold">
                 GP Koirala
               </p>
@@ -66,13 +66,12 @@ const page = () => {
               </Link>
             </div>
           </div>
-          <div>
+          <div className="lg:inline-block hidden relative w-full h-full">
             <Image
               src="/sujan sir.png"
-              width={500}
-              height={500}
+              fill
               alt="College Image"
-              className="lg:inline-block hidden rounded-lg "
+              className="object-cover h-full w-full rounded-md "
             />
           </div>
         </section>
@@ -81,7 +80,7 @@ const page = () => {
         <section className="py-20 px-4">
           {/* Section Heading */}
           <div className="mb-12">
-            <p className="text-center text-3xl md:text-4xl font-bold text-purple-800">
+            <p className="text-center text-3xl md:text-4xl font-bold primary-font-color">
               Our Vision
             </p>
           </div>
@@ -90,7 +89,7 @@ const page = () => {
           <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-10">
             {/* Sticky Left Side */}
             <div className="lg:sticky lg:top-24 self-start h-fit">
-              <div className="bg-[#3f06b0] text-white rounded-lg p-8">
+              <div className="primary-bg-color text-white rounded-lg p-8">
                 <p className="text-3xl font-bold">Our Vision</p>
 
                 <p className="mt-4 text-white/80 leading-7">
@@ -102,13 +101,13 @@ const page = () => {
             </div>
 
             {/* Right Side - 4 Vision Cards */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-6">
               {Visions.map((vision) => (
                 <div
                   key={vision.id}
                   className="group rounded-lg bg-gray-100 p-8 flex flex-col hover:bg-purple-800 transition-all duration-200 ease-in-out"
                 >
-                  <p className="text-purple-800 text-xl font-bold group-hover:text-white">
+                  <p className="primary-font-color text-xl font-bold group-hover:text-white">
                     {vision.title}
                   </p>
 

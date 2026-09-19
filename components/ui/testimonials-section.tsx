@@ -38,13 +38,13 @@ const testimonials: Testimonial[] = [
 
 export function TestimonialsSection() {
   return (
-    <div className="mx-auto -mt-10 grid w-full max-w-6xl gap-12      md:grid-cols-3 md:gap-6">
+    <div className="mx-auto -mt-10 grid w-full max-w-6xl gap-12 md:grid-cols-1 lg:grid-cols-3 grid-cols-1 md:gap-6">
       {testimonials.map((testimonial, index) => (
         <TestimonialCard
           index={index}
           key={testimonial.name}
           testimonial={testimonial}
-          className="shadow-lg hover:shadow-xl hover:shadow-purple-300 transition-all duration-300 ease-in hover:-translate-y-1"
+          className="shadow-lg hover:shadow-xl hover:shadow-blue-900 transition-all duration-300 ease-in hover:-translate-y-1"
         />
       ))}
     </div>

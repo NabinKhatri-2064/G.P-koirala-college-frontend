@@ -64,27 +64,27 @@ const Navbar = () => {
       }
     >
       {/* MAIN WRAPPER */}
-      <section className="max-w-7xl mx-auto w-full  ">
+      <section className="lg:max-w-7xl lg:mx-auto w-full lg:px-0 px-4 ">
         <div className="flex items-center justify-between h-24">
           {/* LOGO + COLLEGE INFO */}
           <Link href="/" className="flex items-center gap-3">
-            <div>
+            <div className="relative overflow-hidden w-12 h-12 lg:w-24 lg:h-24">
               <Image
                 src="/collegelogo.png"
                 alt="College Logo"
-                width={78}
-                height={78}
+                fill
+                className="object-cover h-full w-full"
               />
             </div>
 
             <div className="leading-tight">
-              <p className="text-white text-lg font-semibold">G.P Koirala</p>
+              <p className="text-white lg:text-lg text-sm font-semibold">G.P Koirala</p>
 
-              <p className="text-white text-sm font-semibold">
+              <p className="text-white lg:text-sm text-xs font-semibold">
                 Memorial Community College
               </p>
 
-              <p className="text-white   text-xs font-light mt-1">
+              <p className="text-white text-xs font-light mt-1">
                 Sifal,Kathmandu
               </p>
             </div>
@@ -104,7 +104,7 @@ const Navbar = () => {
           </section>
 
           {/* COLLEGE LOCATION */}
-          <section className="hover:scale-105 transition">
+          <section className="hover:scale-105 transition hidden lg:inline-block">
             <Link
               href="/collegelocation"
               className="

@@ -65,10 +65,10 @@ const Navbar = () => {
     >
       {/* MAIN WRAPPER */}
       <section className="lg:max-w-7xl lg:mx-auto w-full lg:px-0 px-4 ">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between lg:h-24 h-16">
           {/* LOGO + COLLEGE INFO */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative overflow-hidden w-12 h-12 lg:w-24 lg:h-24">
+            <div className="relative overflow-hidden w-12 h-12 lg:w-18 lg:h-18">
               <Image
                 src="/collegelogo.png"
                 alt="College Logo"

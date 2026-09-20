@@ -15,8 +15,8 @@ const Herosection = () => {
   const AffiliationIcon = affiliation.icon;
 
   return (
-    <main className="min-h-screen w-full flex flex-col overflow-x-hidden gap-20 lg:pt-20 md:pt-18 pt-10 ">
-      <section className="relative w-full min-h-screen overflow-visible flex">
+    <main className="min-h-screen w-full flex flex-col overflow-x-hidden gap-20 lg:pt-20   ">
+      <section className="relative w-full lg:min-h-screen overflow-visible flex">
         <Gridline />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex">
@@ -24,8 +24,8 @@ const Herosection = () => {
             <div className="w-full lg:w-[58%] z-20 ">
               <section className="flex flex-col gap-8">
                 <div>
-                  <p className="flex lg:w-[60%] w-full bg-linear-to-r from-purple-900 to-blue-800 justify-center items-center gap-4 rounded-full px-2 py-1 text-white lg:text-sm">
-                    <AffiliationIcon className="w-8 h-8 shrink-0" />
+                  <p className="flex lg:w-[60%]  w-full bg-linear-to-r from-purple-900 to-blue-800 justify-center items-center lg:gap-4 gap-2 rounded-full px-2 py-1 text-white lg:text-sm text-xs">
+                    <AffiliationIcon className="lg:w-8 lg:h-8 w-5 h-5"  />
                     {affiliation.text}
                   </p>
                 </div>

@@ -38,7 +38,7 @@ const testimonials: Testimonial[] = [
 
 export function TestimonialsSection() {
   return (
-    <div className="mx-auto -mt-10 grid w-full max-w-6xl gap-12 md:grid-cols-1 lg:grid-cols-3 grid-cols-1 md:gap-6">
+    <div className="mx-auto -mt-10 grid w-full  max-w-6xl lg:gap-12 lg:grid-cols-3 grid-cols-1 gap-4 ">
       {testimonials.map((testimonial, index) => (
         <TestimonialCard
           index={index}
@@ -65,7 +65,7 @@ function TestimonialCard({
   return (
     <figure
       className={cn(
-        "relative flex flex-col justify-between gap-6 px-8 pt-8 pb-6 shadow-xs md:translate-y-[calc(3rem*var(--t-card-index))]",
+        "relative flex flex-col justify-between gap-6 px-8 pt-8 pb-6 shadow-xs lg:translate-y-[calc(3rem*var(--t-card-index))]",
         "dark:bg-[radial-gradient(50%_80%_at_25%_0%,--theme(--color-foreground/.1),transparent)]",
         className,
       )}

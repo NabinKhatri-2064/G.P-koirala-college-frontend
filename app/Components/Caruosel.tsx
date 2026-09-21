@@ -19,7 +19,6 @@ import Autoplay from "embla-carousel-autoplay";
 export function CarouselDemo() {
   return (
     <section className="w-full">
-      <p className="hidden">Hellp</p>
       <div className="mx-auto flex min-h-screen h-full w-full max-w-7xl flex-col items-center justify-center gap-10 px-4 py-4 sm:px-6 lg:gap-14 lg:px-8 lg:py-20">
 
         {/* Heading */}

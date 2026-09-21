@@ -58,7 +58,7 @@ const page = () => {
 
       <Adminportal />
       <section className="flex lg:flex-row flex-col  rounded-md border-2 justify-between  min-h-screen gap-4  border-gray-200 pb-10 pt-16 ">
-        <div className="relative flex flex-col items-center justify-center md:min-w-xs  w-full bg-[#32048f]/80 rounded-md gap-4 p-4 overflow-hidden rounded-br-[50%]">
+        <div className="relative flex flex-col items-center justify-center md:min-w-xs  w-full bg-linear-to-r from-blue-950 via-blue-800/80 to-blue-900/60 rounded-md gap-4 p-4 overflow-hidden rounded-br-[50%]">
           <Image
             src="/sujan sir.png"
             height={1200}

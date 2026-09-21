@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Form,
   LucideIcon,
@@ -18,7 +20,7 @@ import {
 
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import Dashboardskeleton from "./LoadinSkeletons/Dashboardskeleton";
+import Dashboardskeleton from "../LoadinSkeletons/Dashboardskeleton";
 
 const Dashboard = () => {
   const [newslength, setNewsLength] = useState<number>(0);
@@ -109,7 +111,7 @@ const Dashboard = () => {
 
   return (
     <main>
-      <section className="grid grid-cols-3 gap-4 max-w-lg">
+      <section className="grid lg:grid-cols-3 grid-cols-1 gap-4 ">
         {Dashboard.map((d, index) => (
           <div
             className="flex border hover:bg-gray-100/70  p-2 rounded-md flex-col justify-center items-center"
@@ -132,13 +134,13 @@ const Dashboard = () => {
       ) : (
         <section className="pt-12 flex flex-col gap-8">
           {/* RECENT ENQUIRIES SECTION */}
-          <h1 className="text-5xl font-medium text-gray-600">
+          <h1 className="lg:text-5xl text-xl font-medium text-gray-600">
             Recent Enquiries
           </h1>
           <Table>
             <TableHeader>
-              <TableRow>
-                <TableHead className="w-25">Name</TableHead>
+              <TableRow >
+                <TableHead className="w-25 ">Name</TableHead>
                 <TableHead>email</TableHead>
                 <TableHead>contact</TableHead>
                 <TableHead className="text-right">Intrestedin</TableHead>
@@ -148,10 +150,10 @@ const Dashboard = () => {
             {info.map((i) => (
               <TableBody key={i.id} className="border-b">
                 <TableRow>
-                  <TableCell className="font-medium">{i.name}</TableCell>
-                  <TableCell>{i.email}</TableCell>
-                  <TableCell>{i.mobilenumber}</TableCell>
-                  <TableCell className="text-right">{i.interestedin}</TableCell>
+                  <TableCell className="font-medium text-xs">{i.name}</TableCell>
+                  <TableCell className="text-xs">{i.email}</TableCell>
+                  <TableCell className="text-xs">{i.mobilenumber}</TableCell>
+                  <TableCell className="text-right text-xs">{i.interestedin}</TableCell>
                 </TableRow>
               </TableBody>
             ))}

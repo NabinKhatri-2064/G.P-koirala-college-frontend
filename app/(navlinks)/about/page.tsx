@@ -105,9 +105,9 @@ const page = () => {
               {Visions.map((vision) => (
                 <div
                   key={vision.id}
-                  className="group rounded-lg bg-gray-100 p-8 flex flex-col hover:bg-purple-800 transition-all duration-200 ease-in-out"
+                  className="group rounded-lg bg-gray-100 p-8 flex flex-col hover:bg-blue-950 transition-all duration-200 ease-in-out"
                 >
-                  <p className="primary-font-color text-xl font-bold group-hover:text-white">
+                  <p className="primary-font-color text-xl font-bold group-hover:text-white!">
                     {vision.title}
                   </p>
 
@@ -121,7 +121,7 @@ const page = () => {
         </section>
 
         <section>
-              <CarouselDemo/>
+          <CarouselDemo />
         </section>
       </main>
     </>

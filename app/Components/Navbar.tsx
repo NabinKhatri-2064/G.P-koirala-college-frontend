@@ -21,35 +21,35 @@ const Navbar = () => {
       id: 1,
       label: "Home",
       styling:
-        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+        "text-xs font-medium border-b-2 p-1 border-transparent hover:text-blue-900 text-gray-800 hover:border-b-blue-900 transition",
       href: "/",
     },
     {
       id: 2,
       label: "About us",
       styling:
-        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:text-blue-900 hover:border-b-blue-900 transition",
       href: "/about",
     },
     {
       id: 3,
       label: "Programs",
       styling:
-        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:text-blue-900 hover:border-b-blue-900 transition",
       href: "/programs",
     },
     {
       id: 4,
       label: "News and Events",
       styling:
-        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:text-blue-900 hover:border-b-blue-900 transition",
       href: "/news",
     },
     {
       id: 5,
       label: "Admission",
       styling:
-        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:border-b-blue-900 transition",
+        "text-xs font-medium border-b-2 p-1 border-transparent text-gray-800 hover:text-blue-900 hover:border-b-blue-900 transition",
       href: "/admission",
     },
   ];

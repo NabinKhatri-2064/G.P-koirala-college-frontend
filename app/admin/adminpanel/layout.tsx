@@ -1,6 +1,5 @@
 "use client";
 
-import Caution from "@/app/Components/Caution";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Adminpanelskeleton from "./components/Adminpanelskeleton";
@@ -43,7 +42,6 @@ export default function AdminPanelLayout({
   return (
     <div>
       <div>
-        <Caution />
         {children}
       </div>
     </div>
